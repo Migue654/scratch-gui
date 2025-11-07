@@ -53,6 +53,14 @@ const blockColors = {
         tertiary: '#DB6E00',
         quaternary: '#DB6E00'
     },
+//--------------Research Edits-------------------
+    Miguel: {
+        primary: '#800020',
+        secondary: '#800020',
+        tertiary: '#800020',
+        quaternary: '800020'
+    },
+//----------------------------------------------
     // This is not a new category, but rather for differentiation
     // between lists and scalar variables.
     data_lists: {

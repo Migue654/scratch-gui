@@ -24,6 +24,15 @@ const motion = function (isInitialSetup, isStage, targetId, colors) {
                 </shadow>
             </value>
         </block>
+// marker---------------------------------------------------
+        <block type="motion_movesteps">
+            <value name="STEPS">
+                <shadow type="math_number">
+                    <field name="NUM">30</field>
+                </shadow>
+            </value>
+        </block>
+//----------------------------------------------------------
         <block type="motion_turnright">
             <value name="DEGREES">
                 <shadow type="math_number">
@@ -38,7 +47,7 @@ const motion = function (isInitialSetup, isStage, targetId, colors) {
                 </shadow>
             </value>
         </block>
-        ${blockSeparator}
+       
         <block type="motion_goto">
             <value name="TO">
                 <shadow type="motion_goto_menu">
@@ -736,6 +745,27 @@ const myBlocks = function (isInitialSetup, isStage, targetId, colors) {
     </category>
     `;
 };
+//---------------------Research Section----------------------------
+const Miguels= function (isInitialSetup, isStage, targetId, colors) {
+    return `
+    <category
+        name="Miguels Block YAY!!"
+        id="sound"
+        colour="${colors.primary}" 
+        secondaryColour="${colors.tertiary}">
+//what defines the block------------------------------------------
+        <block type="looks_say">
+            <value name="MESSAGE">
+                <shadow type="text">
+                    <field name="TEXT">Custom Block ???!</field>
+                </shadow>
+            </value>
+        </block>
+//-------------------------------------------------------------
+    </category>
+    `
+};
+//--------------------------------------------------------------
 /* eslint-enable no-unused-vars */
 
 const xmlOpen = '<xml style="display: none">';
@@ -777,8 +807,10 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
         // return `undefined`
     };
     const motionXML = moveCategory('motion') || motion(isInitialSetup, isStage, targetId, colors.motion);
-    const looksXML = moveCategory('looks') ||
-        looks(isInitialSetup, isStage, targetId, costumeName, backdropName, colors.looks);
+    const looksXML = moveCategory('looks') ||looks(isInitialSetup, isStage, targetId, costumeName, backdropName, colors.looks);
+    //-------------------Research Section---------------------------
+    const MiguelsXML = moveCategory('Miguels') || Miguels(isInitialSetup, isStage, targetId, colors.Miguel);
+    //--------------------------------------------------------------
     const soundXML = moveCategory('sound') || sound(isInitialSetup, isStage, targetId, soundName, colors.sounds);
     const eventsXML = moveCategory('event') || events(isInitialSetup, isStage, targetId, colors.event);
     const controlXML = moveCategory('control') || control(isInitialSetup, isStage, targetId, colors.control);
@@ -797,6 +829,9 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
         sensingXML, gap,
         operatorsXML, gap,
         variablesXML, gap,
+//-------------------Research Section---------------------------
+        MiguelsXML, gap,
+//--------------------------------------------------------------
         myBlocksXML
     ];
 
